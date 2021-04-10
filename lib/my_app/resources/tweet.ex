@@ -21,6 +21,10 @@ defmodule MyApp.Tweet do
   postgres do
     table "users"
     repo MyApp.Repo
+
+    references do
+      reference :user, on_delete: :delete, on_update: :update
+    end
   end
 
 
@@ -42,11 +46,7 @@ defmodule MyApp.Tweet do
 
   actions do
     create :create do
-      argument :user, :map, allow_nil?: false #arguments are sent with attributes in json:api
-      # change is like `plug` but for resource actions
-      # `manage_relationship` is documented in `Ash.Changeset` and supports *tons* of options
-      # you can read more about both in the docs
-      change manage_relationship(:user, type: :replace)
+      accept([:id, :body, :public, :user])
     end
 
     read :read

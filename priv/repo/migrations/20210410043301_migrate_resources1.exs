@@ -23,7 +23,14 @@ defmodule MyApp.Repo.Migrations.MigrateResources1 do
     end
 
     alter table(:users) do
-      modify :user_id, references(:tweets, type: :uuid, column: :id, name: "users_user_id_fkey")
+      modify :user_id,
+             references(:tweets,
+               type: :uuid,
+               column: :id,
+               name: nil,
+               on_delete: :delete_all,
+               on_update: :update_all
+             )
     end
   end
 

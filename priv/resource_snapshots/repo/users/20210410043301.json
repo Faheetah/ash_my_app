@@ -58,9 +58,9 @@
           "global": null,
           "strategy": null
         },
-        "name": "users_user_id_fkey",
-        "on_delete": null,
-        "on_update": null,
+        "name": null,
+        "on_delete": "delete",
+        "on_update": "update",
         "table": "tweets"
       },
       "type": "uuid"
@@ -68,7 +68,7 @@
   ],
   "base_filter": null,
   "has_create_action": true,
-  "hash": "0387BDAD892FC373953FEF96593F43107111F6D36448F62A1911AD48456577EE",
+  "hash": "8A3DF8A42019803D6452C6285FC199093DADF2F6CB6CE8C9477BA302125AD139",
   "identities": [],
   "multitenancy": {
     "attribute": null,
